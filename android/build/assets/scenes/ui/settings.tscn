@@ -1,0 +1,192 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ui/settings.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/firstPage/settingsPage.png" type="Texture" id=2]
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "close"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("container:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 0.4 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 50 ), Vector2( 0, -720 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("container:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.4, 0.4, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, 50 ), Vector2( 0, 0 ) ]
+}
+
+[node name="settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Node2D" parent="."]
+position = Vector2( 0, -720 )
+
+[node name="panel" type="Sprite" parent="container"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="x" type="Sprite" parent="container"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 1008.33, 209.304 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 842.666, 4.30605, 65.3341, 63.694 )
+
+[node name="soundCheck" type="Sprite" parent="container"]
+modulate = Color( 0, 1, 0.0392157, 1 )
+position = Vector2( 506, 270 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 915.805, 13.2127, 79.2753, 73.8228 )
+
+[node name="musicCheck" type="Sprite" parent="container"]
+modulate = Color( 0, 1, 0.0392157, 1 )
+position = Vector2( 506, 341.919 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 915.805, 13.2127, 79.2753, 73.8228 )
+
+[node name="btnContainer" type="Node2D" parent="container"]
+
+[node name="soundOn" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 485.0
+margin_top = 252.0
+margin_right = 530.0
+margin_bottom = 296.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="soundOff" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 568.0
+margin_top = 251.0
+margin_right = 613.0
+margin_bottom = 298.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicOn" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 481.0
+margin_top = 319.0
+margin_right = 528.0
+margin_bottom = 368.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="musicOff" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 570.0
+margin_top = 319.0
+margin_right = 622.0
+margin_bottom = 364.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="quit" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 980.0
+margin_top = 178.657
+margin_right = 1037.0
+margin_bottom = 235.657
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="credits" type="Button" parent="container/btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 793.0
+margin_top = 439.0
+margin_right = 980.0
+margin_bottom = 499.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="positionsContainer" type="Node2D" parent="container"]
+
+[node name="soundOnPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 504.874, 272.943 )
+
+[node name="soundOffPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 592.556, 274.357 )
+
+[node name="musicOnPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 506.289, 342.24 )
+
+[node name="musicOffPos" type="Position2D" parent="container/positionsContainer"]
+position = Vector2( 593.97, 340.825 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 2 )
+anims/open = SubResource( 1 )
+[connection signal="button_down" from="container/btnContainer/soundOn" to="." method="_on_soundOn_button_down"]
+[connection signal="button_down" from="container/btnContainer/soundOff" to="." method="_on_soundOff_button_down"]
+[connection signal="button_down" from="container/btnContainer/musicOn" to="." method="_on_musicOn_button_down"]
+[connection signal="button_down" from="container/btnContainer/musicOff" to="." method="_on_musicOff_button_down"]
+[connection signal="button_up" from="container/btnContainer/quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="container/btnContainer/credits" to="." method="_on_credits_button_up"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

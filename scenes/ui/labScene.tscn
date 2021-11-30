@@ -1,0 +1,433 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://scenes/ui/assets/labBG.jpg" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/assets/labAssets.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/assets/uiAssets.png" type="Texture" id=3]
+[ext_resource path="res://scenes/ui/assets/textMat.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/ui/labScene.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/Acme-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/fonts/SHOWG.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://scenes/ui/assets/labTextInfo.tres" type="DynamicFont" id=8]
+[ext_resource path="res://scenes/ui/assets/btnTexts.tres" type="DynamicFont" id=9]
+[ext_resource path="res://scenes/ui/gorillSellInfo.gd" type="Script" id=10]
+[ext_resource path="res://scenes/ui/snakeSellInfo.gd" type="Script" id=11]
+[ext_resource path="res://scenes/ui/errorMsg.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/ui/characterImg.tscn" type="PackedScene" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 35
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 7 )
+
+[node name="labScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+errMsg = ExtResource( 12 )
+characterImgScene = ExtResource( 13 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="panelCont" type="Node2D" parent="."]
+
+[node name="infoPanel" type="Sprite" parent="panelCont"]
+position = Vector2( 47.1937, 45.8143 )
+scale = Vector2( 1, 1.13264 )
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 21, 15, 402, 305 )
+
+[node name="name" type="Label" parent="panelCont"]
+margin_left = 55.0
+margin_top = 51.0203
+margin_right = 439.0
+margin_bottom = 109.02
+custom_fonts/font = SubResource( 1 )
+text = "Gorilla Stone"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LV" type="Label" parent="panelCont"]
+margin_left = 65.5288
+margin_top = 107.519
+margin_right = 187.529
+margin_bottom = 152.519
+custom_fonts/font = SubResource( 2 )
+text = "Level"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="levelText" type="Label" parent="panelCont"]
+margin_left = 290.275
+margin_top = 107.519
+margin_right = 412.275
+margin_bottom = 152.519
+custom_fonts/font = SubResource( 2 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hp" type="Label" parent="panelCont"]
+margin_left = 65.5288
+margin_top = 149.471
+margin_right = 187.529
+margin_bottom = 194.471
+custom_fonts/font = SubResource( 2 )
+text = "HP"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hpAmount" type="Label" parent="panelCont"]
+margin_left = 271.959
+margin_top = 148.475
+margin_right = 437.959
+margin_bottom = 193.475
+custom_fonts/font = ExtResource( 8 )
+text = "100 / 100"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack" type="Label" parent="panelCont"]
+margin_left = 64.4272
+margin_top = 188.787
+margin_right = 279.427
+margin_bottom = 233.787
+custom_fonts/font = ExtResource( 8 )
+text = "Attack Damage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attackDamage" type="Label" parent="panelCont"]
+margin_left = 334.122
+margin_top = 188.787
+margin_right = 374.122
+margin_bottom = 233.787
+custom_fonts/font = ExtResource( 8 )
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Label" parent="panelCont"]
+margin_left = 69.0
+margin_top = 236.997
+margin_right = 246.0
+margin_bottom = 281.997
+custom_fonts/font = ExtResource( 8 )
+text = "Attack Info :"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="descrip" type="Label" parent="panelCont"]
+margin_left = 72.0
+margin_top = 278.997
+margin_right = 429.0
+margin_bottom = 359.997
+custom_fonts/font = SubResource( 3 )
+text = "000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coin" type="Sprite" parent="."]
+modulate = Color( 0.968627, 1, 0, 1 )
+position = Vector2( 1086.54, 51.6333 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1014, 588, 66, 73 )
+
+[node name="coinCount" type="Label" parent="."]
+margin_left = 1130.51
+margin_top = 25.1532
+margin_right = 1249.51
+margin_bottom = 89.1532
+custom_fonts/font = ExtResource( 4 )
+text = "x 000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.521569 )
+position = Vector2( 692.576, 411.095 )
+scale = Vector2( 1.52609, 1.31463 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 318, 563, 305, 108 )
+
+[node name="characterImgCont" type="Node2D" parent="."]
+position = Vector2( 710, 265 )
+
+[node name="btnCont" type="Node2D" parent="."]
+
+[node name="doneSprite" type="Sprite" parent="btnCont"]
+modulate = Color( 0.792157, 1, 0.741176, 1 )
+position = Vector2( 1139.1, 627.058 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 964, 553, 309, 118 )
+
+[node name="done2" type="Label" parent="btnCont"]
+margin_left = 1046.08
+margin_top = 607.127
+margin_right = 1188.08
+margin_bottom = 658.127
+custom_fonts/font = ExtResource( 9 )
+text = "done"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="done" type="Button" parent="btnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1021.0
+margin_top = 591.0
+margin_right = 1231.0
+margin_bottom = 680.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgradeSprite" type="Sprite" parent="btnCont"]
+modulate = Color( 0.803922, 1, 0.996078, 1 )
+position = Vector2( 1115.68, 271.188 )
+scale = Vector2( 1.23059, 1.22833 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 984, 553, 255, 125 )
+
+[node name="coinIcon" type="Sprite" parent="btnCont"]
+modulate = Color( 0.803922, 1, 0.996078, 1 )
+position = Vector2( 1075.84, 295.15 )
+scale = Vector2( 0.774723, 0.629556 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 1019, 585, 60, 78 )
+
+[node name="upgrade2" type="Label" parent="btnCont"]
+margin_left = 1009.03
+margin_top = 235.325
+margin_right = 1263.03
+margin_bottom = 286.325
+custom_fonts/font = SubResource( 4 )
+text = "upgrade"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgrade" type="Button" parent="btnCont"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 984.696
+margin_top = 220.2
+margin_right = 1220.69
+margin_bottom = 326.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinAmountForUpgrade" type="Label" parent="btnCont"]
+margin_left = 1104.46
+margin_top = 276.185
+margin_right = 1144.46
+margin_bottom = 321.185
+custom_fonts/font = ExtResource( 8 )
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gorillaIcon" type="Node2D" parent="."]
+
+[node name="gorillaIcon" type="Sprite" parent="gorillaIcon"]
+position = Vector2( 137.198, 477.522 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 17, 513, 138, 144 )
+
+[node name="gorillaStone" type="Button" parent="gorillaIcon"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 71.909
+margin_top = 422.794
+margin_right = 210.909
+margin_bottom = 538.794
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gorillaCount" type="Label" parent="gorillaIcon"]
+margin_left = 204.907
+margin_top = 486.431
+margin_right = 326.907
+margin_bottom = 537.431
+custom_fonts/font = ExtResource( 9 )
+text = "x 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gorillSellInfo" type="Node2D" parent="gorillaIcon"]
+position = Vector2( 111.118, 147.628 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 10 )
+
+[node name="sellSprite" type="Sprite" parent="gorillaIcon/gorillSellInfo"]
+modulate = Color( 1, 0.6, 0.6, 1 )
+position = Vector2( 464.137, 481.203 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 972, 567, 270, 109 )
+
+[node name="sell2" type="Label" parent="gorillaIcon/gorillSellInfo"]
+margin_left = 394.433
+margin_top = 451.569
+margin_right = 516.433
+margin_bottom = 502.569
+custom_fonts/font = ExtResource( 9 )
+text = "sell"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sell" type="Button" parent="gorillaIcon/gorillSellInfo"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 352.14
+margin_top = 436.572
+margin_right = 553.14
+margin_bottom = 520.572
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakeIcon" type="Node2D" parent="."]
+
+[node name="snakeIcon" type="Sprite" parent="snakeIcon"]
+position = Vector2( 140.762, 625.411 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 167.05, 521.85, 132.05, 130.15 )
+
+[node name="snakeStone" type="Button" parent="snakeIcon"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 67.2298
+margin_top = 565.721
+margin_right = 211.23
+margin_bottom = 688.721
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakeCount" type="Label" parent="snakeIcon"]
+margin_left = 213.816
+margin_top = 628.974
+margin_right = 335.816
+margin_bottom = 679.974
+custom_fonts/font = ExtResource( 9 )
+text = "x 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="snakeSellInfo" type="Node2D" parent="snakeIcon"]
+position = Vector2( 109.531, 185.726 )
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 11 )
+
+[node name="sellSprite2" type="Sprite" parent="snakeIcon/snakeSellInfo"]
+modulate = Color( 1, 0.6, 0.6, 1 )
+position = Vector2( 465.724, 628.831 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 972, 567, 270, 109 )
+
+[node name="sell3" type="Label" parent="snakeIcon/snakeSellInfo"]
+margin_left = 396.021
+margin_top = 599.198
+margin_right = 518.021
+margin_bottom = 650.198
+custom_fonts/font = ExtResource( 9 )
+text = "sell"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sell4" type="Button" parent="snakeIcon/snakeSellInfo"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 353.728
+margin_top = 584.2
+margin_right = 554.728
+margin_bottom = 668.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hl" type="Sprite" parent="."]
+position = Vector2( 190, 625 )
+scale = Vector2( 0.735493, 1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 10, 317, 426, 180 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="button_down" from="btnCont/done" to="." method="_on_done_button_down"]
+[connection signal="button_down" from="btnCont/upgrade" to="." method="_on_upgrade_button_down"]
+[connection signal="button_down" from="gorillaIcon/gorillaStone" to="." method="_on_gorillaStone_button_down"]
+[connection signal="button_down" from="gorillaIcon/gorillSellInfo/sell" to="gorillaIcon/gorillSellInfo" method="_on_sell_button_down"]
+[connection signal="button_down" from="snakeIcon/snakeStone" to="." method="_on_snakeStone_button_down"]
+[connection signal="button_down" from="snakeIcon/snakeSellInfo/sell4" to="snakeIcon/snakeSellInfo" method="_on_sell4_button_down"]

@@ -1,0 +1,239 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scenes/ui/startPage.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/AGENCYB.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/images/firstPage/startPageBG.jpg" type="Texture" id=3]
+[ext_resource path="res://assets/images/firstPage/assets1280x720.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 1
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0.8, 0.686275, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0, 0.203922, 0.180392, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0235294, 0.0235294, 0.0235294, 0.145098 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=4]
+size = 25
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 3
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=6]
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.04 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.04, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("infoContainer/infoPanel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 640, -360 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("infoContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 0.378929, 0.378929, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 770 ), Vector2( 0, 720 ) ]
+}
+
+[node name="startPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="btnContainer" type="Node2D" parent="."]
+
+[node name="play" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 921.0
+margin_top = 325.0
+margin_right = 1128.0
+margin_bottom = 468.0
+rect_pivot_offset = Vector2( 476.519, 89.0374 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 787.0
+margin_top = 506.0
+margin_right = 1127.0
+margin_bottom = 617.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Button" parent="btnContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 94.0
+margin_top = 77.0
+margin_right = 265.0
+margin_bottom = 184.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1280.0
+margin_bottom = -720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Loading" type="HBoxContainer" parent="Control"]
+visible = false
+margin_left = 299.716
+margin_top = 598.284
+margin_right = 1011.72
+margin_bottom = 647.284
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/Loading"]
+margin_right = 126.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "loading..."
+align = 1
+valign = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/Loading"]
+margin_left = 130.0
+margin_right = 712.0
+margin_bottom = 49.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="Control/Loading"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="infoContainer" type="Node2D" parent="."]
+
+[node name="infoPanel" type="Sprite" parent="infoContainer"]
+modulate = Color( 0.337255, 0.788235, 0.92549, 1 )
+position = Vector2( 640, -360 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 839, 441 )
+
+[node name="Label" type="Label" parent="infoContainer"]
+margin_left = 222.0
+margin_top = -572.0
+margin_right = 1056.0
+margin_bottom = -155.0
+custom_fonts/font = SubResource( 5 )
+text = "Hello World"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="closeInfo" type="Button" parent="infoContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 963.0
+margin_top = -551.0
+margin_right = 1033.0
+margin_bottom = -485.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="infoContainer"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 995.895, -519.137 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 844.911, 7.0962, 56.5215, 57.9114 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/infoPanel = SubResource( 6 )
+[connection signal="button_up" from="btnContainer/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="btnContainer/settings" to="." method="_on_settings_button_up"]
+[connection signal="button_up" from="btnContainer/info" to="." method="_on_info_button_up"]
+[connection signal="timeout" from="Control/Loading/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="button_down" from="infoContainer/closeInfo" to="." method="_on_closeInfo_button_down"]

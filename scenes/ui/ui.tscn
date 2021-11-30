@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/ui/ui.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/SHOWG.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/fonts/Acme-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/ui/assets/uiAssets.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "start"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Node2D/readyGo:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.1, 1.3, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Ready", "Ready", "Go", "Go" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Node2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 1.1, 1.3, 1.6, 2.2, 2.4 ),
+"transitions": PoolRealArray( 0.4, 0.4, 0.4, 0.4, 1, 0.4, 0.4, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.1, 0.1 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Node2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 2.4, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true, false ]
+}
+
+[sub_resource type="Animation" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 4
+font_data = ExtResource( 2 )
+
+[node name="ui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinIcon" type="Sprite" parent="."]
+position = Vector2( 1081.78, 62.9289 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 1013, 583, 67, 83 )
+
+[node name="coinCount" type="Label" parent="."]
+margin_left = 1110.02
+margin_top = 38.5119
+margin_right = 1245.02
+margin_bottom = 90.5119
+custom_fonts/font = SubResource( 1 )
+text = "x 5"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/start = SubResource( 2 )
+anims/timesUp = SubResource( 3 )
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2( 649.172, 373.358 )
+scale = Vector2( 0.1, 0.1 )
+
+[node name="readyGo" type="Label" parent="Node2D"]
+margin_left = -264.708
+margin_top = -169.63
+margin_right = 287.292
+margin_bottom = 197.37
+custom_fonts/font = SubResource( 4 )
+text = "Ready"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
